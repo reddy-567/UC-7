@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tip Calculator</title>
+	</head>
+	<body style="text-align:center">
+	<h1>Tip Calculator</h1>
+
+    <label for="total_bill">Enter Total Bill:  </label>
+    <input type="number" name="bill" id="t_bill" required><br><br>
+
+    <label for="no_of_people">No of People Sharing the bill :  </label>
+    <input type="number" name="noOfPeople" id="people" required><br><br>
+
+    <label for="rating">Rate the Service:  </label>
+    <input type="text" name="rate" id="rate" required><br><br>
+
+    <button type="submit" onclick="generateBill()">GenerateBill Individually</button>
+
+    <script type="text/javascript">
+
+        function generateBill()
+        {
+            var bill=document.getElementById("t_bill").value;
+            var people=document.getElementById("people").value;
+            var rate=(document.getElementById("rate").value).toLowerCase();
+            var total_bill_per_person;
+            var total_tip_per_person;
+            if(rate==="outstanding")
+            {
+                var t_tip=(bill*30)/100;
+                var t_bill=(parseInt(bill)+t_tip);
+                document.getElementById("demo").innerHTML=`Total bill is ${t_bill}`
+                total_bill_per_person=t_bill/people;
+                total_tip_per_person=t_tip/people;
+                document.getElementById("output1").innerHTML=`Total Bill per Person is : ${total_bill_per_person}`
+                document.getElementById("output2").innerHTML=`Total Tip per Person is : ${total_tip_per_person}`
+            }
+            else if(rate=="good")
+            {
+                var t_tip=(bill*20)/100;
+                var t_bill=(parseInt(bill)+t_tip);
+                document.getElementById("demo").innerHTML=`Total bill is ${t_bill}`
+                total_bill_per_person=(t_bill)/people;
+                total_tip_per_person=t_tip/people;
+                document.getElementById("output1").innerHTML=`Total Bill per Person is : ${total_bill_per_person}`
+                document.getElementById("output2").innerHTML=`Total Tip per Person is : ${total_tip_per_person}`
+            }
+            else if(rate=="ok")
+            {
+                var t_tip=(bill*15)/100;
+                var t_bill=(parseInt(bill)+t_tip);
+                document.getElementById("demo").innerHTML=`Total bill is ${t_bill}`
+                total_bill_per_person=t_bill/people;
+                total_tip_per_person=t_tip/people;
+                document.getElementById("output1").innerHTML=`Total Bill per Person is : ${total_bill_per_person}`
+                document.getElementById("output2").innerHTML=`Total Tip per Person is : ${total_tip_per_person}`
+            }
+            else if(rate=="bad")
+            {
+                var t_tip=(bill*5)/100;
+                var t_bill=(parseInt(bill)+t_tip);
+                document.getElementById("demo").innerHTML=`Total bill is ${t_bill}`
+                total_bill_per_person=t_bill/people;
+                total_tip_per_person=t_tip/people;
+                document.getElementById("output1").innerHTML=`Total Bill per Person is : ${total_bill_per_person}`
+                document.getElementById("output2").innerHTML=`Total Tip per Person is : ${total_tip_per_person}`
+            }
+            else
+            {
+                document.getElementById("output1").innerHTML=`Enter Valid Details`
+                
+            }
+
+
+
+        }
+
+
+    </script>
+    <p id="demo"></p>
+
+    <p id="output1"></p>
+    <p id="output2"></p>
+
+</body>
+</html>
+
